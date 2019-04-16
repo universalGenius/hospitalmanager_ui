@@ -1,0 +1,20 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+    <button (click)="st.reload()" nz-button nzType="primary">刷新</button>
+    <!-- <button (click)="add()" nz-button nzType="primary">新建</button> -->
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf #sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" (formReset)="reset()"></sf>
+  <st #st [data]="pageData.data" [columns]="columns" [ps]="20"
+  [total]="pageData.total" [page]="{placement:'center',front:false}" (change)="change($event)">
+    <ng-template st-row="{{t}}" let-item *ngFor="let t of ['companyName','name']; let i=index;">
+        <nz-tooltip [nzTitle]="item[t] | showDetaiOrOn">
+          <span nz-tooltip>{{ item[t] | wordLimit }}</span>
+        </nz-tooltip>
+    </ng-template>
+    <ng-template st-row="logo" let-item>
+        <img [src]="item.logo?item.logo:''" (click)="viewImgService.checkImg(item.logo)" [ngClass]="{'my-img': true}" alt="">
+      </ng-template>
+  </st>
+</nz-card>

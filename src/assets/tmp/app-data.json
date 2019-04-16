@@ -1,0 +1,143 @@
+{
+  "app": {
+    "name": "盟盟",
+    "description": "盟盟加盟网后台管理"
+  },
+  "user": {
+
+  },
+
+  "menu": [
+    {
+      "text": "页面主导航",
+      "group": true,
+      "children": [
+        {
+          "text": "用户板块",
+          "group": true,
+          "icon": "anticon anticon-user",
+          "children": [
+            {
+              "text": "所有用户",
+              "link":"/user/person"
+            },
+            {
+              "text": "企业用户",
+              "link":"/user/company"
+            },
+            {
+              "text": "品牌管理",
+              "link":"/user/brand"
+            },
+            {
+              "text": "假品牌管理",
+              "link":"/user/brand-fake"
+            },
+            {
+              "text": "留言记录",
+              "link":"/user/message"
+            },
+            {
+              "text": "企业入住",
+              "link":"/user/enterprises"
+            }
+          ]
+        },
+        {
+          "text": "信息板块",
+          "group": true,
+          "icon": "anticon anticon-info-circle",
+          "children": [
+            {
+              "text": "证书审核",
+              "link":"/info/certificate-check"
+            },
+            {
+              "text": "品牌新闻审核",
+              "link":"/info/brand-news-check"
+            },
+            {
+              "text": "用户登录信息",
+              "link":"/info/login-message"
+            },
+            {
+              "text": "封号管理",
+              "link":"/info/account-forbidden"
+            },
+            {
+              "text": "注销管理",
+              "link":"/info/logout-manage"
+            },
+            {
+              "text": "头报管理",
+              "link":"/info/head-report"
+            },
+            {
+              "text": "APP版本更新记录",
+              "link":"/info/app-versions"
+            },
+            {
+              "text": "网站配置信息",
+              "link":"/info/website-config"
+            }
+          ]
+        },
+        {
+          "text": "数据管理",
+          "group": true,
+          "icon": "anticon anticon-bar-chart",
+          "children": [
+            {
+              "text": "静态数据",
+              "link":"/data/data-static"
+            },
+            {
+              "text": "分类数据",
+              "link":"/data/categorical-data"
+            },
+            {
+              "text": "数据统计",
+              "link":"/data/data-statistics"
+            }
+          ]
+        },
+        {
+          "text": "广告管理",
+          "group": true,
+          "hideInBreadcrumb": true,
+          "icon": "anticon anticon-notification",
+          "children": [
+            {
+              "text": "PC-banner",
+              "link":"/advertis/pc-banner"
+            },
+            {
+              "text": "APP-banner",
+              "link":"/advertis/app-banner"
+            },
+            {
+              "text": "首页排序",
+              "link":"/advertis/home-page-sorting"
+            },
+            {
+              "text": "红铺排序",
+              "link":"/advertis/hot-shops-sorting"
+            },
+            {
+              "text": "热门搜索",
+              "link":"/advertis/hot-search"
+            },
+            {
+              "text": "广告详情",
+              "link":"/advertis/advertising-detail"
+            },
+            {
+              "text": "广告位",
+              "link":"/advertis/advertising-space"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

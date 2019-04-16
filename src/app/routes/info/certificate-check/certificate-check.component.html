@@ -1,0 +1,35 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+    <!-- <button (click)="add()" nz-button nzType="primary">新建</button> -->
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf #sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" (formReset)="reset()"></sf>
+  <!-- <st #st [data]="url" [columns]="columns"></st> -->
+  <br><br>
+  <div style="width:49%;float: left;">
+    <!-- <button (click)="refresh()" nz-button nzType="primary">刷新</button>
+    <button (click)="add(false)" nz-button nzType="primary">新增</button> -->
+    <st #stl [data]="leftdata" [total]="this.lefttotal" [columns]="columnsl" [page]="{placement:'center',front:false}" (change)="change($event)" [ps]="20">
+        <ng-template st-row="{{t}}" let-item *ngFor="let t of ['name']; let i=index;">
+            <nz-tooltip [nzTitle]="item[t] | showDetaiOrOn">
+              <span nz-tooltip>{{ item[t] | wordLimit }}</span>
+            </nz-tooltip>
+        </ng-template>
+    </st>
+  </div>
+  <div style="width:49%;float: right;">
+    <!-- <button (click)="refresh()" nz-button nzType="primary">刷新</button> -->
+    <!-- <button (click)="add(true)" nz-button nzType="primary">新增</button> -->
+    <st #str [data]="rightdata" [columns]="columnsr" [total]="this.righttotal" [page]="{placement:'center',front:false}">
+        <ng-template st-row="{{t}}" let-item *ngFor="let t of ['companyName','brandName']; let i=index;">
+            <nz-tooltip [nzTitle]="item[t] | showDetaiOrOn">
+              <span nz-tooltip>{{ item[t] | wordLimit }}</span>
+            </nz-tooltip>
+        </ng-template>
+        <ng-template st-row="imgUrl" let-item>
+          <img [src]="item.imgUrl?item.imgUrl:''" (click)="viewImgService.checkImg(item.imgUrl)" [ngClass]="{'my-img': true}" alt="">
+        </ng-template>
+    </st>
+  </div>
+</nz-card>

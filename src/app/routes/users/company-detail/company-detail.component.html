@@ -1,0 +1,23 @@
+<div class="modal-header">
+    <div class="modal-title">查看 {{ record.id }} 信息</div>
+  </div>
+  <nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
+  <div sv-container *ngIf="i">
+    <sv label="公司名称">{{ i.name }}</sv>
+    <sv label="品牌名称">{{ i.brandName }}</sv>
+    <sv label="公司地址">{{ i.address }}</sv>
+    <sv label="邮政编码">{{ i.postalCode }}</sv>
+    <sv label="公司网址">{{ i.website }}</sv>
+    <sv label="联系人">{{ i.contact }}</sv>
+    <sv label="职位">{{ i.position }}</sv>
+    <sv label="性别">{{ i.sex==1?"男":i.sex==2?"女":"-" }}</sv>
+    <sv label="手机号">{{ i.phone?i.phone:i.userPhone }}</sv>
+    <sv label="固定电话">{{ i.officeNumber }}</sv>
+    <sv label="微信">{{ i.wx }}</sv>
+    <sv label="QQ">{{ i.qq }}</sv>
+    <sv label="邮箱">{{ i.email }}</sv>
+    <sv label="传真">{{ i.fax }}</sv>
+  </div>
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">关闭</button>
+  </div>

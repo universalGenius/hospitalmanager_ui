@@ -1,0 +1,52 @@
+<div class="modal-header">
+  <div class="modal-title">查看信息</div>
+</div>
+<nz-spin *ngIf="!i" class="modal-spin"></nz-spin>
+<div sv-container *ngIf="i">
+  <sv label="公司名称">{{ data.brandBasicInfo?.companyName }}</sv>
+  <sv label="品牌名称">{{ data.brandBasicInfo?.name }}</sv>
+  <sv label="餐饮类型">{{ data.brandBasicInfo?.fatherFoodName+'/'+data.brandBasicInfo?.sonFoodName }}</sv>
+  <sv label="品牌所属">{{ data.brandBasicInfo?.belongId==1?"自有品牌":data.brandBasicInfo?.belongId==2?"代理品牌":'' }}</sv>
+  <sv label="投资金额">{{ data.brandBasicInfo?.capitalName }}</sv>
+  <sv label="直营店数量">{{ data.brandBasicInfo?.directStoreNum }}</sv>
+  <sv label="加盟店数量">{{ data.brandBasicInfo?.joinStoreNum }}</sv>
+  <!-- a)	公司名称
+b)	品牌名称
+c)	餐饮类型：展示餐饮类型，格式为：一级-二级，如“小吃-麻辣烫”
+d)	品牌所属：展示“自有品牌、代理品牌”
+e)	投资金额
+f)	直营店数量
+g)	加盟店数量
+h)	加盟费：单位万元
+i)	保证金：单位万元
+j)	设备费：单位万元
+k)	其他费用：单位万元
+l)	加盟模式：用“，”隔开；
+m)	招商区域
+n)	区域授权：是/否
+o)	适合人群：用“，”隔开；
+p)	特许时间
+q)	培训期限
+r)	合同期限
+s)	加盟支持：用“，”隔开； -->
+  <sv label="加盟费">{{ data.brandInitialFee?.joinGold?data.brandInitialFee?.joinGold+'万元':'' }}</sv>
+  <sv label="保证金">{{ data.brandInitialFee?.margin?data.brandInitialFee?.margin+'万元':'' }}</sv>
+  <sv label="设备费">{{ data.brandInitialFee?.equipmentFee?data.brandInitialFee?.equipmentFee+'万元':'' }}</sv>
+  <sv label="其他费用">{{ data.brandInitialFee?.otherExpenses?data.brandInitialFee?.otherExpenses+'万元':'' }}</sv>
+  <sv label="区域授权">{{ data.brandInvestment?.regionWarrant == 1?'是':'否' }}</sv>
+  <sv label="特许时间">{{ data.brandInvestment?.franchiseTime }}</sv>
+  <sv label="培训期限">{{ data.brandInvestment?.trainingPeriod }}</sv>
+  <sv label="合同期限">{{ data.brandInvestment?.contractTerm }}</sv>
+  <sv label="店面选址名称">{{ data.brandInvestment?.locationName }}</sv>
+  <sv label="设计装修名称">{{ data.brandInvestment?.decorationName }}</sv>
+  <sv label="培训方式名称">{{ data.brandInvestment?.trainingMethodName }}</sv>
+  <sv label="合同期限">{{ data.brandInvestment?.contractTerm }}</sv>
+  <sv label="合适人群">{{ data.brandInvestment?.crowdNameList | json }}</sv>
+  <sv label="招商区域">{{ data.brandInvestment?.cityList| json}}</sv>
+  <sv label="培训内容">{{ data.brandInvestment?.trainContent | json }}</sv>
+  <sv label="经营支持">{{ data.brandInvestment?.operateSupport | json }}</sv>
+  <sv label="运营督导">{{ data.brandInvestment?.operationalSupervision | json }}</sv>
+</div>
+<div class="modal-footer">
+  <button nz-button type="button" (click)="close()">关闭</button>
+</div>

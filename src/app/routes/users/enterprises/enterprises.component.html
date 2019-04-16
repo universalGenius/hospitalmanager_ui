@@ -1,0 +1,12 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+      <!-- http-url="" down-file -->
+    <button nz-button nzType="primary" (click)="st.reload()">刷新</button>
+    <button nz-button nzType="primary" (click)="goDownload()">导出</button>
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf #sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" (formReset)="reset($event)"></sf>
+  <st #st [data]="pageData.data" ps="20" [total]="pageData.total" [columns]="columns" [page]="{placement:'center',front:false}"
+    (change)="change($event)"></st>
+</nz-card>

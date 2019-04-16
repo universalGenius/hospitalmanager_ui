@@ -1,0 +1,21 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+      <!-- http-url="" down-file -->
+    <button nz-button nzType="primary" (click)="st.reload()">刷新</button>
+    <!-- <button nz-button nzType="primary" (click)="goDownload()">导出用户地址</button> -->
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf #sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" (formReset)="reset($event)"></sf>
+  <st #st [data]="pageData.data" ps="20" [total]="pageData.total" [columns]="columns" [page]="{placement:'center',front:false}"
+    (change)="change($event)">
+    <ng-template st-row="{{t}}" let-item *ngFor="let t of ['name']; let i=index;">
+      <nz-tooltip [nzTitle]="item[t] | showDetaiOrOn">
+        <span nz-tooltip>{{ item[t] | wordLimit }}</span>
+      </nz-tooltip>
+    </ng-template>
+    <ng-template st-row="avatar" let-item>
+      <img [src]="item.avatar?item.avatar:''" (click)="viewImgService.checkImg(item.avatar)" [ngClass]="{'my-img': true}" alt="">
+    </ng-template>
+  </st>
+</nz-card>

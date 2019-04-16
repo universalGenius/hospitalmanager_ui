@@ -1,0 +1,23 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+    <!-- <button (click)="add()" nz-button nzType="primary">新建</button> -->
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf #sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" [button]="null">
+    <button type="button" nz-button nzType="primary" (click)="goDownload()">导出</button>
+    <button type="submit" nz-button nzType="primary">搜索</button>
+    <button type="button" nz-button nzType="default" (click)="reset()">重置</button>
+  </sf>
+  <!-- <st #st [data]="url" [columns]="columns"></st> --><br><br><br><br>
+  <g2-bar height="400" [title]="'品牌数据'" [data]="brandDataList"></g2-bar><br><br>
+  <g2-bar height="400" [title]="'所有用户'" [data]="userDataList"></g2-bar><br><br>
+  <g2-bar height="400" [title]="'企业用户'" [data]="companyDataList"></g2-bar><br><br>
+  <g2-bar height="400" [title]="'个人用户'" [data]="personalDataList"></g2-bar><br><br>
+  <!-- <g2-timeline height="400" [mask]="YY-MM-DD" [title]="'品牌数据'" [data]="brandDataList" [titleMap]="{y1: '品牌数据'}" [colorMap]="{y1:'#1890FF',y2:''}"></g2-timeline><br><br>
+  <g2-timeline height="400" [title]="'所有用户'" [data]="userDataList" [titleMap]="{y1: '所有用户'}"></g2-timeline><br><br>
+  <g2-timeline height="400" [title]="'企业用户'" [data]="companyDataList" [titleMap]="{y1: '企业用户'}"></g2-timeline><br><br>
+  <g2-timeline height="400" [title]="'个人用户'" [data]="personalDataList" [titleMap]="{y1: '个人用户'}"></g2-timeline><br><br> -->
+  <!-- <g2-timeline height="400" [titleMap]="{y1: '品牌数据', y2: '所有用户', y3: '企业用户', y4: '个人用户',}" [data]="userDataList"></g2-timeline> -->
+</nz-card>
+

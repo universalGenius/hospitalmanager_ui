@@ -1,0 +1,14 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+      <button (click)="st.reload()" nz-button nzType="primary">刷新</button>
+    <button (click)="add()" nz-button nzType="primary">新建</button>
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf #sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" (formReset)="reset()"></sf>
+  <st #st (change)="change($event)" [data]="pageData.data" [ps]="20" [total]="pageData.total" [columns]="columns" [page]="{placement:'center',front:false}">
+    <ng-template st-row="imgUrl" let-item>
+      <img [src]="item.imgUrl?item.imgUrl:''" (click)="viewImgService.checkImg(item.imgUrl)" [ngClass]="{'my-img': true}" alt="">
+    </ng-template>
+  </st>
+</nz-card>

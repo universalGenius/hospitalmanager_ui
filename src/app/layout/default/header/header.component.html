@@ -1,0 +1,43 @@
+<div class="alain-default__header-logo">
+  <a [routerLink]="['/']" class="alain-default__header-logo-link">
+    <img class="alain-default__header-logo-expanded"
+    src="http://ossmeng.oss-cn-hangzhou.aliyuncs.com/mengmeng/logo/logo-no-domain2.png"
+    alt="{{settings.app.name}}" style="max-height:40px;" />
+    <img class="alain-default__header-logo-collapsed" src="http://ossmeng.oss-cn-hangzhou.aliyuncs.com/mengmeng/logo/logo-no-domain2.png"
+     alt="{{settings.app.name}}" style="max-height:30px;" />
+  </a>
+</div>
+<div class="alain-default__nav-wrap">
+  <ul class="alain-default__nav">
+    <!-- Menu -->
+    <li>
+      <div class="alain-default__nav-item" (click)="toggleCollapsedSidebar()">
+        <i nz-icon type="menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
+      </div>
+    </li>
+  </ul>
+  <ul class="alain-default__nav">
+    <!-- Settings -->
+    <li class="hidden-mobile">
+      <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
+        <div class="alain-default__nav-item" nz-dropdown>
+          <i nz-icon type="setting"></i>
+        </div>
+        <div nz-menu style="width:200px;">
+          <div nz-menu-item>
+            <header-fullscreen></header-fullscreen>
+          </div>
+          <div nz-menu-item>
+            <header-storage></header-storage>
+          </div>
+        </div>
+      </nz-dropdown>
+    </li>
+    <li class="hidden-mobile">
+      <!-- <header-notify></header-notify> -->
+    </li>
+    <li class="hidden-mobile">
+      <header-user></header-user>
+    </li>
+  </ul>
+</div>

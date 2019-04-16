@@ -1,0 +1,20 @@
+<page-header [action]="phActionTpl">
+  <ng-template #phActionTpl>
+    <!-- <button (click)="add()" nz-button nzType="primary">新建</button> -->
+  </ng-template>
+</page-header>
+<nz-card>
+  <sf mode="search" [schema]="searchSchema" (formSubmit)="search($event)" (formReset)="reset()"></sf>
+  <!-- <st #st [data]="url" [columns]="columns"></st> -->
+  <br><br>
+  <div style="width:49%;float: left;">
+    <button (click)="getLeftData()" nz-button nzType="primary">刷新</button>
+    <button (click)="add(false)" nz-button nzType="primary">新增</button>
+    <st #stl [data]="leftdata" [columns]="columnsl" [total]="leftTotal" (change)="showDetail($event)" [ps]="20" [page]="{placement:'center',front:false}"></st>
+  </div>
+  <div style="width:49%;float: right;">
+    <button (click)="getRightData()" nz-button nzType="primary">刷新</button>
+    <button (click)="add(true)" nz-button nzType="primary">新增</button>
+    <st #str [data]="rightdata" [columns]="columnsr" [total]="rightTotal" [ps]="20" [page]="{placement:'center'}"></st>
+  </div>
+</nz-card>
